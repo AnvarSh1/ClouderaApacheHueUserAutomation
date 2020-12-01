@@ -30,7 +30,7 @@ for line in `strings /proc/$(lsof -i :8888|grep -m1 hue|awk '{ print $2 }')/envi
 
 #### Creating users
 
-In a very basic way, if just one user is needed, can be done like:
+If just one user is needed, can be done like:
 ```
 from django.contrib.auth.models import User, Permission, Group
 newuser = User.objects.create(username='alice', password='P@ssw0rd', email='alice@org.com', first_name='Alice', last_name='AliceAlice')
