@@ -14,6 +14,7 @@ export HUE_CONF_DIR="/var/run/cloudera-scm-agent/process/`ls -alrt /var/run/clou
 echo $HUE_CONF_DIR
 ```
 2. Set necessary environment variables:
+
 RHEL/CentOS:
 ```
 for line in `strings /proc/$(lsof -i :8888|grep -m1 python|awk '{ print $2 }')/environ|egrep -v "^HOME=|^TERM=|^PWD="`;do export $line;done
@@ -87,14 +88,14 @@ And considering our .csv file is named "userlist.csv", we can now simply run `Cr
 I am not looking into batch deletion of users here, since that can be easily done from Hue UI itself. However batch deactivation can come in handy:
 
 ```
-rom django.contrib.auth.models import User, Permission, Group
+from django.contrib.auth.models import User, Permission, Group
 def DeactivateUsers(username):
     theuser=User.objects.get(username=username)
     theuser.is_active=False
     theuser.save()
 ```
 
-Considering we have a list of usernames to deactivates, you can just iterate through that list to deactivate them at once.
+Considering we have a list of usernames to deactivate, you can just iterate through that list to deactivate them at once.
 
 
 #### MISC
