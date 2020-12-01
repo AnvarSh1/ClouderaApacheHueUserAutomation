@@ -95,3 +95,11 @@ def DeactivateUsers(username):
 ```
 
 Considering we have a list of usernames to deactivates, you can just iterate through that list to deactivate them at once.
+
+
+#### MISC
+
+Considering Hue shell is Python, we can install some additionall packages there too, but I would not recommend that, please proceed on your own risk:
+```
+/opt/cloudera/parcels/CDH-*cdh*/lib/hue/build/env/bin/python2.7 -m pip install packagename
+```
